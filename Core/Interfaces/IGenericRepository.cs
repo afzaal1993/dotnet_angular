@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces
 {
-    public interface IGenericRepository<T> where T : BaseEntity  //Means whoever is using this BaseEntity can use this generic repository
+    public interface IGenericRepository<T> where T : BaseEntity  //This is  constraint. Means whoever is using this BaseEntity can use this generic repository
     {
         Task<T> GetByIdAsync(int id);
         Task<IReadOnlyList<T>> ListAllAsync();

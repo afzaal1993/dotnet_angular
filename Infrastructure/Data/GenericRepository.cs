@@ -28,14 +28,14 @@ namespace Infrastructure.Data
             return await _context.Set<T>().ToListAsync();
         }
 
-        public Task<T> GetEntityWithSpec(ISpecification<T> spec)
+        public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
         {
-            throw new NotImplementedException();
+            return await Applyspecification(spec).FirstOrDefaultAsync();
         }
 
-        public Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
-            throw new NotImplementedException();
+            return await Applyspecification(spec).ToListAsync();
         }
 
         private IQueryable<T> Applyspecification(ISpecification<T> spec)
